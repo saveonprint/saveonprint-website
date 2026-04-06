@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOP Graphics & Advertising – A House of Signs Company</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0f2d6b;
+    --blue: #1a52c5;
+    --blue-light: #2f6fe8;
+    --green: #3e9e1f;
+    --green-light: #52cc28;
+    --white: #ffffff;
+    --off-white: #f4f6fb;
+    --gray: #6b7280;
+    --gray-light: #e8edf5;
+    --dark: #0a1a3a;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; color: var(--dark); background: var(--white); }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--navy);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5%;
+    height: 68px;
+    border-bottom: 3px solid var(--green);
+  }
+  .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .nav-logo-icon {
+    width: 42px; height: 42px; border-radius: 8px;
+    background: var(--green); display: flex; align-items: center; justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 800; color: white;
+    letter-spacing: -1px;
+  }
+  .nav-logo-text { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 17px; color: white; line-height: 1.2; }
+  .nav-logo-text span { color: var(--green-light); display: block; font-size: 11px; font-weight: 400; letter-spacing: 1px; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 32px; }
+  .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 0.3px; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--green-light); }
+  .nav-cta {
+    background: var(--green); color: white; border: none; padding: 9px 20px;
+    border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer;
+    text-decoration: none; transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--green-light); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; }
+
+  /* HERO */
+  .hero {
+    margin-top: 68px;
+    min-height: calc(100vh - 68px);
+    background: linear-gradient(135deg, var(--navy) 0%, #0a2052 60%, #0d3070 100%);
+    display: flex; align-items: center;
+    padding: 80px 5%;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -100px; right: -100px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(62,158,31,0.12) 0%, transparent 70%);
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -80px; left: 20%;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(26,82,197,0.2) 0%, transparent 70%);
+  }
+  .hero-content { max-width: 620px; position: relative; z-index: 1; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(62,158,31,0.15); border: 1px solid rgba(82,204,40,0.3);
+    color: var(--green-light); font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 6px 14px; border-radius: 20px; margin-bottom: 24px;
+  }
+  .hero-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--green-light); }
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif; font-size: clamp(42px, 6vw, 72px);
+    font-weight: 800; color: white; line-height: 1.05; margin-bottom: 20px; text-transform: uppercase;
+  }
+  .hero h1 em { color: var(--green-light); font-style: normal; }
+  .hero p { font-size: 17px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 36px; max-width: 520px; }
+  .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--green); color: white; padding: 14px 28px;
+    border-radius: 8px; font-weight: 600; font-size: 15px; text-decoration: none;
+    transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-primary:hover { background: var(--green-light); transform: translateY(-1px); }
+  .btn-outline {
+    border: 1.5px solid rgba(255,255,255,0.35); color: white; padding: 14px 28px;
+    border-radius: 8px; font-weight: 600; font-size: 15px; text-decoration: none;
+    transition: all 0.2s; display: inline-flex; align-items: center; gap: 8px;
+  }
+  .btn-outline:hover { border-color: white; background: rgba(255,255,255,0.08); }
+  .hero-stats {
+    display: flex; gap: 40px; margin-top: 52px; padding-top: 36px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+  }
+  .hero-stat .num {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 36px; font-weight: 800; color: white;
+  }
+  .hero-stat .num span { color: var(--green-light); }
+  .hero-stat .lbl { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 2px; }
+
+  /* HERO VISUAL */
+  .hero-visual {
+    flex: 1; display: flex; justify-content: flex-end; align-items: center;
+    position: relative; z-index: 1; min-width: 340px;
+  }
+  .hero-card-stack { position: relative; width: 340px; height: 400px; }
+  .hero-card {
+    position: absolute; background: white; border-radius: 16px; padding: 24px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  }
+  .hc1 { width: 280px; left: 40px; top: 0; }
+  .hc2 { width: 260px; left: 0; top: 120px; background: var(--navy); }
+  .hc3 { width: 240px; right: 0; top: 200px; background: var(--green); }
+  .hc-tag { font-size: 10px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gray); margin-bottom: 8px; }
+  .hc1 .hc-tag { color: var(--gray); }
+  .hc2 .hc-tag, .hc3 .hc-tag { color: rgba(255,255,255,0.6); }
+  .hc-title { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 700; color: var(--dark); }
+  .hc2 .hc-title, .hc3 .hc-title { color: white; }
+  .hc-sub { font-size: 13px; color: var(--gray); margin-top: 4px; }
+  .hc2 .hc-sub { color: rgba(255,255,255,0.6); }
+  .hc3 .hc-sub { color: rgba(255,255,255,0.8); }
+  .hc-dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; margin-right: 6px; }
+
+  /* CLIENTS TICKER */
+  .ticker { background: var(--navy); padding: 16px 0; overflow: hidden; border-top: 1px solid rgba(255,255,255,0.08); }
+  .ticker-inner { display: flex; gap: 60px; animation: ticker 25s linear infinite; white-space: nowrap; }
+  .ticker-inner span { color: rgba(255,255,255,0.45); font-size: 13px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; flex-shrink: 0; }
+  .ticker-inner span.dot { color: var(--green); }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* SECTIONS */
+  section { padding: 96px 5%; }
+  .section-label {
+    font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--green); margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif; font-size: clamp(32px, 4vw, 48px);
+    font-weight: 800; color: var(--navy); text-transform: uppercase; line-height: 1.1; margin-bottom: 16px;
+  }
+  .section-title em { color: var(--blue); font-style: normal; }
+  .section-sub { font-size: 16px; color: var(--gray); line-height: 1.7; max-width: 560px; }
+
+  /* SERVICES PREVIEW */
+  .services-preview { background: var(--off-white); }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px; margin-top: 48px;
+  }
+  .service-card {
+    background: white; border-radius: 14px; padding: 28px 24px;
+    border: 1.5px solid var(--gray-light); transition: all 0.25s; cursor: pointer;
+    text-decoration: none; color: inherit; display: block;
+  }
+  .service-card:hover { border-color: var(--blue); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(26,82,197,0.1); }
+  .service-icon {
+    width: 52px; height: 52px; border-radius: 12px;
+    background: var(--off-white); display: flex; align-items: center; justify-content: center;
+    margin-bottom: 18px; font-size: 24px; transition: background 0.2s;
+  }
+  .service-card:hover .service-icon { background: #e3eeff; }
+  .service-card h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 8px; text-transform: uppercase; }
+  .service-card p { font-size: 14px; color: var(--gray); line-height: 1.6; }
+  .service-card .arrow { color: var(--blue); font-size: 18px; margin-top: 16px; display: inline-block; transition: transform 0.2s; }
+  .service-card:hover .arrow { transform: translateX(4px); }
+
+  /* WHY US */
+  .why-us { background: white; }
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 48px; align-items: center; }
+  .why-items { display: flex; flex-direction: column; gap: 28px; }
+  .why-item { display: flex; gap: 20px; align-items: flex-start; }
+  .why-num {
+    min-width: 44px; height: 44px; border-radius: 10px;
+    background: var(--navy); color: white;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 800;
+  }
+  .why-item h4 { font-weight: 600; font-size: 16px; color: var(--navy); margin-bottom: 4px; }
+  .why-item p { font-size: 14px; color: var(--gray); line-height: 1.6; }
+  .why-visual {
+    background: var(--navy); border-radius: 20px; padding: 40px;
+    position: relative; overflow: hidden;
+  }
+  .why-visual::before {
+    content: ''; position: absolute; top: -60px; right: -60px;
+    width: 220px; height: 220px; border-radius: 50%;
+    background: rgba(62,158,31,0.15);
+  }
+  .why-big-text {
+    font-family: 'Barlow Condensed', sans-serif; font-size: 80px; font-weight: 800;
+    color: white; line-height: 1; margin-bottom: 8px;
+  }
+  .why-big-text span { color: var(--green-light); }
+  .why-visual p { color: rgba(255,255,255,0.7); font-size: 15px; line-height: 1.6; position: relative; }
+  .why-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; position: relative; }
+  .why-tag {
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+    color: white; font-size: 13px; padding: 6px 14px; border-radius: 20px;
+  }
+
+  /* CTA STRIP */
+  .cta-strip {
+    background: var(--green); padding: 60px 5%;
+    display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+  }
+  .cta-strip h2 {
+    font-family: 'Barlow Condensed', sans-serif; font-size: clamp(28px, 4vw, 44px);
+    font-weight: 800; color: white; text-transform: uppercase; line-height: 1.1;
+  }
+  .cta-strip h2 span { color: var(--navy); }
+  .btn-dark {
+    background: var(--navy); color: white; padding: 14px 28px;
+    border-radius: 8px; font-weight: 600; font-size: 15px; text-decoration: none;
+    white-space: nowrap; transition: background 0.2s;
+  }
+  .btn-dark:hover { background: var(--dark); }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark); padding: 60px 5% 32px;
+    display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px;
+  }
+  .footer-brand .nav-logo { margin-bottom: 16px; }
+  .footer-brand p { font-size: 14px; color: rgba(255,255,255,0.45); line-height: 1.7; max-width: 300px; }
+  .footer-col h4 { font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 700; color: white; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; }
+  .footer-col a { display: block; color: rgba(255,255,255,0.45); font-size: 14px; text-decoration: none; margin-bottom: 10px; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--green-light); }
+  .footer-col p { font-size: 14px; color: rgba(255,255,255,0.45); margin-bottom: 10px; line-height: 1.5; }
+  .footer-bottom {
+    background: var(--dark); border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 20px 5%; display: flex; justify-content: space-between; align-items: center;
+    font-size: 13px; color: rgba(255,255,255,0.3);
+  }
+  .footer-bottom a { color: var(--green-light); text-decoration: none; }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero { flex-direction: column; gap: 48px; }
+    .hero-visual { min-width: unset; width: 100%; justify-content: center; }
+    .why-grid { grid-template-columns: 1fr; }
+    footer { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    .hero-stats { flex-wrap: wrap; gap: 24px; }
+    .hero-card-stack { width: 280px; height: 320px; }
+    .hc1 { width: 220px; left: 30px; top: 0; }
+    .hc2 { width: 200px; left: 0; top: 100px; }
+    .hc3 { width: 180px; right: 0; top: 165px; }
+    footer { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-icon">SOP</div>
+    <div class="nav-logo-text">
+      SOP Graphics & Advertising
+      <span>A House of Signs Company</span>
+    </div>
+  </a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <a href="contact.html" class="nav-cta">Get a Quote</a>
+  <div class="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="gap:60px;">
+  <div class="hero-content">
+    <div class="hero-badge">Since 2015 · Pasig City, PH</div>
+    <h1>We Make Your<br><em>Brand</em> Get<br>Noticed.</h1>
+    <p>From impactful signage to professional branding — SOP Graphics & Advertising brings your business ideas to life with precision, speed, and prices that won't break the bank.</p>
+    <div class="hero-buttons">
+      <a href="services.html" class="btn-primary">Our Services →</a>
+      <a href="contact.html" class="btn-outline">Get a Quote</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">10<span>+</span></div><div class="lbl">Years in Business</div></div>
+      <div class="hero-stat"><div class="num">500<span>+</span></div><div class="lbl">Projects Completed</div></div>
+      <div class="hero-stat"><div class="num">100<span>%</span></div><div class="lbl">Quality Assured</div></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card-stack">
+      <div class="hero-card hc1">
+        <div class="hc-tag">Signage Solutions</div>
+        <div class="hc-title">LED & Acrylic Signs</div>
+        <div class="hc-sub">Custom-built for your storefront</div>
+      </div>
+      <div class="hero-card hc2">
+        <div class="hc-tag">Advertising</div>
+        <div class="hc-title">Tarpaulins & Banners</div>
+        <div class="hc-sub">Vibrant, weather-resistant prints</div>
+      </div>
+      <div class="hero-card hc3">
+        <div class="hc-tag">Branding</div>
+        <div class="hc-title">Stickers & Wraps</div>
+        <div class="hc-sub">Any surface, any size</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>Signage</span><span class="dot">✦</span>
+    <span>LED Signs</span><span class="dot">✦</span>
+    <span>Tarpaulin Print</span><span class="dot">✦</span>
+    <span>Vehicle Wraps</span><span class="dot">✦</span>
+    <span>Acrylic Signs</span><span class="dot">✦</span>
+    <span>Event Displays</span><span class="dot">✦</span>
+    <span>Wall Graphics</span><span class="dot">✦</span>
+    <span>PVC Board</span><span class="dot">✦</span>
+    <span>Stainless Signs</span><span class="dot">✦</span>
+    <!-- duplicate for seamless loop -->
+    <span>Signage</span><span class="dot">✦</span>
+    <span>LED Signs</span><span class="dot">✦</span>
+    <span>Tarpaulin Print</span><span class="dot">✦</span>
+    <span>Vehicle Wraps</span><span class="dot">✦</span>
+    <span>Acrylic Signs</span><span class="dot">✦</span>
+    <span>Event Displays</span><span class="dot">✦</span>
+    <span>Wall Graphics</span><span class="dot">✦</span>
+    <span>PVC Board</span><span class="dot">✦</span>
+    <span>Stainless Signs</span><span class="dot">✦</span>
+  </div>
+</div>
+
+<!-- SERVICES PREVIEW -->
+<section class="services-preview">
+  <div class="section-label">What We Do</div>
+  <div class="section-title">Our <em>Printing</em> & Signage<br>Solutions</div>
+  <div class="section-sub">From small decals to large outdoor advertising — every piece is sharp, durable, and professional.</div>
+  <div class="services-grid">
+    <a href="services.html" class="service-card">
+      <div class="service-icon">🪧</div>
+      <h3>Signage & Building ID</h3>
+      <p>Acrylic, Panaflex, Sintra/PVC Board, LED, Stainless, Neon LED, and Brass signage.</p>
+      <div class="arrow">→</div>
+    </a>
+    <a href="services.html" class="service-card">
+      <div class="service-icon">📣</div>
+      <h3>Billboards & Banners</h3>
+      <p>High-impact tarpaulins and banners printed with vibrant, weather-resistant inks.</p>
+      <div class="arrow">→</div>
+    </a>
+    <a href="services.html" class="service-card">
+      <div class="service-icon">🎪</div>
+      <h3>Activations & Events</h3>
+      <p>Trade show booths, product launches, immersive displays and event backdrops.</p>
+      <div class="arrow">→</div>
+    </a>
+    <a href="services.html" class="service-card">
+      <div class="service-icon">🚗</div>
+      <h3>Stickers & Wraps</h3>
+      <p>Vehicle wraps, wall board-ups, and custom sticker solutions for any surface.</p>
+      <div class="arrow">→</div>
+    </a>
+    <a href="services.html" class="service-card">
+      <div class="service-icon">🎨</div>
+      <h3>Design Services</h3>
+      <p>Our creative team transforms your ideas into visually striking, on-brand concepts.</p>
+      <div class="arrow">→</div>
+    </a>
+    <a href="services.html" class="service-card">
+      <div class="service-icon">🏆</div>
+      <h3>Premium Displays</h3>
+      <p>Custom-made acrylic cabinets — museum-grade protection for collectors and displays.</p>
+      <div class="arrow">→</div>
+    </a>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-us">
+  <div class="why-grid">
+    <div>
+      <div class="section-label">Why Choose Us</div>
+      <div class="section-title">Quality You Can<br><em>See & Touch</em></div>
+      <div class="why-items" style="margin-top:32px;">
+        <div class="why-item">
+          <div class="why-num">01</div>
+          <div>
+            <h4>Quality You Can See</h4>
+            <p>We don't release a project until we are 100% proud of the color and finish.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">02</div>
+          <div>
+            <h4>Business-Speed Turnaround</h4>
+            <p>We know "time is money," so we prioritize efficiency to meet your deadlines.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">03</div>
+          <div>
+            <h4>Trusted by Brands</h4>
+            <p>From local startups to established companies, we're the go-to partner for high-quality visuals.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">04</div>
+          <div>
+            <h4>Premium Yet Affordable</h4>
+            <p>Top-tier technology and craftsmanship at competitive prices — no compromise.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="why-visual">
+      <div class="why-big-text"><span>10</span>+</div>
+      <p>Years of delivering exceptional signage and advertising solutions that help businesses grow and stand out.</p>
+      <div class="why-tags">
+        <div class="why-tag">Pasig City</div>
+        <div class="why-tag">Metro Manila</div>
+        <div class="why-tag">Nationwide</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<div class="cta-strip">
+  <h2>Ready to Make Your<br><span>Brand Unforgettable?</span></h2>
+  <a href="contact.html" class="btn-dark">Get a Free Quote →</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">SOP</div>
+      <div class="nav-logo-text" style="color:white;">
+        SOP Graphics & Advertising
+        <span>A House of Signs Company</span>
+      </div>
+    </a>
+    <p>High-quality printing and creative advertising made affordable. We bring your business ideas to life with precision and speed.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Navigation</h4>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="services.html">Services</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="footer-col">
+    <h4>Contact</h4>
+    <p>31 Palmetto Ave., Greenwoods Executive Village, Brgy. Pinagbuhatan, Pasig City</p>
+    <p>+63 2 7914 6061<br>+63 906 485 8828</p>
+    <p>sales@saveonprint.net</p>
+    <p>Mon–Sat · 8AM–5PM</p>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>© 2025 SOP Graphics & Advertising. All rights reserved.</span>
+  <a href="https://www.facebook.com/saveonprint/" target="_blank">facebook.com/saveonprint</a>
+</div>
+
+</body>
+</html>
